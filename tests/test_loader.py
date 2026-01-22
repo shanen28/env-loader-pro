@@ -1,6 +1,11 @@
 import os
+import sys
 import json
 import pytest
+
+# Add src to path for testing
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
 from env_loader_pro import load_env, EnvLoaderError, generate_env_example
 
 def test_load_env_with_defaults(tmp_path, monkeypatch):

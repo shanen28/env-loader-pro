@@ -4,6 +4,7 @@ import json
 import warnings
 from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Union, Type
 from pathlib import Path
+from collections import defaultdict
 
 class EnvLoaderError(Exception):
     pass
@@ -77,21 +78,34 @@ def _cast_value(value: str, to_type: Optional[Callable]) -> Any:
     except Exception as e:
         raise EnvLoaderError(f"Failed to cast env value '{value}' to {to_type}: {e}")
 
-def _parse_dotenv(path: str, expand_vars: bool = True) -> Dict[str, str]:
+def _parse_dotenv(path: str, expand_vars: bool = True, encrypted: bool = False, encryption_key: Optional[str] = None) -> Dict[str, str]:
     out: Dict[str, str] = {}
     if not os.path.exists(path):
         return out
-    with open(path, "r", encoding="utf-8") as fh:
-        for raw in fh:
-            line = raw.strip()
-            if not line or line.startswith("#"):
-                continue
-            if "=" not in line:
-                continue
-            key, val = line.split("=", 1)
-            key = key.strip()
-            val = val.strip().strip('"').strip("'")
-            out[key] = val
+    
+    # Handle encrypted files
+    content = None
+    if encrypted:
+        try:
+            content = _decrypt_file(path, encryption_key)
+        except Exception as e:
+            raise EnvLoaderError(f"Failed to decrypt file {path}: {e}")
+    
+    if content is None:
+        with open(path, "r", encoding="utf-8") as fh:
+            content = fh.read()
+    
+    # Parse content
+    for raw in content.splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "=" not in line:
+            continue
+        key, val = line.split("=", 1)
+        key = key.strip()
+        val = val.strip().strip('"').strip("'")
+        out[key] = val
     
     # Expand variables if requested
     if expand_vars:
@@ -101,11 +115,146 @@ def _parse_dotenv(path: str, expand_vars: bool = True) -> Dict[str, str]:
         return expanded
     return out
 
+def _decrypt_file(path: str, key: Optional[str] = None) -> str:
+    """Decrypt an encrypted .env file.
+    
+    Supports multiple encryption methods:
+    - age encryption
+    - GPG encryption
+    - openssl encryption
+    
+    Args:
+        path: Path to encrypted file
+        key: Decryption key or path to key file
+    
+    Returns:
+        Decrypted file content
+    """
+    # Try age first
+    try:
+        import subprocess
+        if key:
+            result = subprocess.run(
+                ["age", "--decrypt", "-i", key, path],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+        else:
+            result = subprocess.run(
+                ["age", "--decrypt", path],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+        return result.stdout
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        pass
+    
+    # Try GPG
+    try:
+        import subprocess
+        cmd = ["gpg", "--decrypt", path]
+        if key:
+            cmd.extend(["--passphrase", key])
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        return result.stdout
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        pass
+    
+    # Try openssl
+    try:
+        import subprocess
+        if not key:
+            raise EnvLoaderError("Encryption key required for openssl decryption")
+        
+        result = subprocess.run(
+            ["openssl", "enc", "-d", "-aes-256-cbc", "-salt", "-in", path, "-pass", f"pass:{key}"],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        return result.stdout
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        pass
+    
+    raise EnvLoaderError(
+        "No decryption tool available. Install age, gpg, or openssl, "
+        "or provide decrypted file content."
+    )
+
 def _merge_envs(primary: Mapping[str, str], secondary: Mapping[str, str]) -> Dict[str, str]:
     # primary wins
     merged = dict(secondary)
     merged.update(primary)
     return merged
+
+def _nest_config(flat_config: Dict[str, Any], separator: str = "__") -> Dict[str, Any]:
+    """Convert flat config with DB__HOST syntax to nested structure.
+    
+    Example:
+        {"DB__HOST": "localhost", "DB__PORT": 5432}
+        -> {"DB": {"HOST": "localhost", "PORT": 5432}}
+    
+    Args:
+        flat_config: Flat dictionary with nested keys
+        separator: Separator used in nested keys (default: "__")
+    
+    Returns:
+        Nested dictionary structure
+    """
+    nested = {}
+    
+    for key, value in flat_config.items():
+        if separator in key:
+            parts = key.split(separator, 1)  # Split only on first occurrence
+            prefix = parts[0]
+            suffix = parts[1]
+            
+            if prefix not in nested:
+                nested[prefix] = {}
+            
+            # Recursively handle deeper nesting
+            if separator in suffix:
+                nested[prefix].update(_nest_config({suffix: value}, separator))
+            else:
+                nested[prefix][suffix] = value
+        else:
+            nested[key] = value
+    
+    return nested
+
+def _flatten_nested_config(nested_config: Dict[str, Any], separator: str = "__", parent: str = "") -> Dict[str, Any]:
+    """Convert nested config to flat structure.
+    
+    Example:
+        {"DB": {"HOST": "localhost", "PORT": 5432}}
+        -> {"DB__HOST": "localhost", "DB__PORT": 5432}
+    
+    Args:
+        nested_config: Nested dictionary
+        separator: Separator to use (default: "__")
+        parent: Parent key prefix
+    
+    Returns:
+        Flat dictionary
+    """
+    flat = {}
+    
+    for key, value in nested_config.items():
+        full_key = f"{parent}{separator}{key}" if parent else key
+        
+        if isinstance(value, dict):
+            flat.update(_flatten_nested_config(value, separator, full_key))
+        else:
+            flat[full_key] = value
+    
+    return flat
 
 def _find_env_file(base_path: str, env: Optional[str] = None) -> str:
     """Find the appropriate .env file based on environment name."""
@@ -131,6 +280,13 @@ def load_env(
     rules: Optional[Mapping[str, Callable[[Any], bool]]] = None,
     strict: bool = False,
     schema: Optional[Union[Type, Any]] = None,
+    providers: Optional[List[Any]] = None,  # List of BaseProvider instances
+    nested: bool = False,  # Enable nested config (DB__HOST -> DB.HOST)
+    nested_separator: str = "__",  # Separator for nested keys
+    encrypted: bool = False,  # Enable encrypted .env file support
+    encryption_key: Optional[str] = None,  # Encryption key or path
+    watch: bool = False,  # Enable file watching/reloading
+    trace: bool = False,  # Enable tracing of variable origins
 ) -> Dict[str, Any]:
     """Load environment configuration.
 
@@ -147,6 +303,13 @@ def load_env(
         rules: mapping of var name -> validation function (returns bool)
         strict: if True, warn about unknown variables not in required/optional/types
         schema: Pydantic model or dataclass class for schema validation
+        providers: list of BaseProvider instances (Azure, AWS, Docker, etc.)
+        nested: if True, convert flat keys with separator to nested structure
+        nested_separator: separator for nested keys (default: "__")
+        encrypted: if True, decrypt .env file using encryption_key
+        encryption_key: encryption key or path to key file
+        watch: if True, watch for file changes and reload (requires watchdog)
+        trace: if True, track variable origins for observability
 
     Returns:
         dict of variable name -> typed value (with save() and safe_repr() methods)
@@ -159,6 +322,10 @@ def load_env(
     types = dict(types or {})
     defaults = dict(defaults or {})
     rules = dict(rules or {})
+    providers = providers or []
+    
+    # Variable origin tracking for observability
+    variable_origins: Dict[str, str] = {}
     
     # Find the right env file
     actual_path = _find_env_file(path, env)
@@ -168,23 +335,77 @@ def load_env(
     if env:
         # First load base .env if it exists
         if os.path.exists(path):
-            dotenv_vars = _parse_dotenv(path, expand_vars=expand_vars)
+            parsed = _parse_dotenv(path, expand_vars=expand_vars, encrypted=encrypted, encryption_key=encryption_key)
+            dotenv_vars = parsed
+            if trace:
+                for k in parsed:
+                    variable_origins[k] = "file"
         # Then load .env.{env} and merge (env-specific overrides base)
         # Construct path in same directory as base .env file
         base_dir = os.path.dirname(path) or "."
         env_file = os.path.join(base_dir, f".env.{env}")
         if os.path.exists(env_file):
-            env_vars = _parse_dotenv(env_file, expand_vars=expand_vars)
+            env_vars = _parse_dotenv(env_file, expand_vars=expand_vars, encrypted=encrypted, encryption_key=encryption_key)
             dotenv_vars = _merge_envs(env_vars, dotenv_vars)  # env-specific wins
+            if trace:
+                for k in env_vars:
+                    variable_origins[k] = f"file.{env}"
     else:
-        dotenv_vars = _parse_dotenv(actual_path, expand_vars=expand_vars)
+        parsed = _parse_dotenv(actual_path, expand_vars=expand_vars, encrypted=encrypted, encryption_key=encryption_key)
+        dotenv_vars = parsed
+        if trace:
+            for k in parsed:
+                variable_origins[k] = "file"
     
     system_vars = dict(os.environ)
+    if trace:
+        for k in system_vars:
+            if k not in variable_origins:
+                variable_origins[k] = "system"
     
-    if priority == "system":
-        raw = _merge_envs(system_vars, dotenv_vars)
+    # Merge sources in priority order (lower priority first, higher priority overrides)
+    # Priority order: defaults < base .env < env-specific .env < system < providers
+    raw = {}
+    
+    # 1. Start with defaults
+    raw.update({k: str(v) for k, v in defaults.items()})
+    
+    # 2. Add base .env file
+    if priority == "file":
+        raw = _merge_envs(dotenv_vars, raw)
     else:
-        raw = _merge_envs(dotenv_vars, system_vars)
+        raw = _merge_envs(raw, dotenv_vars)
+    
+    # 3. Add system environment
+    if priority == "system":
+        raw = _merge_envs(system_vars, raw)
+    else:
+        raw = _merge_envs(raw, system_vars)
+    
+    # 4. Load from providers (highest priority)
+    provider_vars = {}
+    for provider in providers:
+        try:
+            if hasattr(provider, 'get_all') and callable(provider.get_all):
+                # Provider supports getting all values
+                provider_values = provider.get_all()
+            else:
+                # Provider only supports get/get_many
+                # Get all keys we're interested in
+                all_keys = set(raw.keys()) | required
+                provider_values = provider.get_many(list(all_keys))
+            
+            provider_vars.update(provider_values)
+            if trace:
+                provider_name = provider.__class__.__name__
+                for k in provider_values:
+                    variable_origins[k] = f"provider.{provider_name}"
+        except Exception as e:
+            if strict:
+                warnings.warn(f"Provider {provider.__class__.__name__} failed: {e}", UserWarning)
+    
+    # Merge provider values (providers have highest priority)
+    raw = _merge_envs(provider_vars, raw)
     
     # Re-expand after merging (in case system vars are referenced)
     if expand_vars:
@@ -234,11 +455,19 @@ def load_env(
             # Key not in parsed, use original default
             parsed[k] = d
     
-    # Apply validation rules
+    # Convert to nested structure if requested
+    if nested:
+        parsed = _nest_config(parsed, nested_separator)
+    
+    # Apply validation rules (on flat keys before nesting or on nested structure)
+    validation_keys = _flatten_nested_config(parsed, nested_separator) if nested else parsed
     for k, rule_func in rules.items():
-        if k in parsed:
-            if not rule_func(parsed[k]):
-                raise EnvLoaderError(f"Validation rule failed for '{k}': {parsed[k]}")
+        # Handle nested keys in validation
+        flat_k = k.replace(".", nested_separator) if nested else k
+        if flat_k in validation_keys:
+            value = validation_keys[flat_k]
+            if not rule_func(value):
+                raise EnvLoaderError(f"Validation rule failed for '{k}': {value}")
     
     # Schema validation (Pydantic or dataclass)
     # Note: When schema is used via load_with_schema(), schema=None is passed
@@ -299,8 +528,26 @@ def load_env(
         
         def save(self, filepath: str, format: str = "json"):
             return save_config(filepath, format)
+        
+        def get_origins(self) -> Dict[str, str]:
+            """Get variable origins for observability."""
+            return variable_origins.copy() if trace else {}
+        
+        def trace(self, key: str) -> str:
+            """Get origin of a specific variable."""
+            if trace:
+                return variable_origins.get(key, "unknown")
+            return "tracing_disabled"
 
     result = ConfigDict(parsed)
+    
+    # Print trace information if requested
+    if trace:
+        print("=== Configuration Trace ===")
+        for key, origin in sorted(variable_origins.items()):
+            if key in parsed:
+                print(f"{key}: {origin}")
+    
     return result
 
 def _apply_schema(parsed: Dict[str, Any], schema: Union[Type, Any]) -> Dict[str, Any]:

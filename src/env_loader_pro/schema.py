@@ -18,34 +18,17 @@ def load_with_schema(
     Returns:
         Schema instance (Pydantic model or dataclass instance)
     """
-    from .loader import load_env
+    from .core.loader import load_env
+    from .core.schema import extract_schema_info
     
-    # Extract field names from schema
-    field_names = _get_schema_fields(schema)
+    # Extract schema info using core module
+    schema_info = extract_schema_info(schema)
     
-    # Create case-insensitive mapping (uppercase env vars -> lowercase field names)
-    # Environment variables are typically uppercase, but schema fields might be lowercase
-    field_types = _get_field_types(schema)
-    field_defaults = _get_field_defaults(schema)
-    
-    # Map both lowercase and uppercase versions
-    types_mapping = {}
-    defaults_mapping = {}
-    required_vars = []
-    optional_vars = []
-    
-    for field_name in field_names:
-        # Map uppercase version (env vars are typically uppercase)
-        upper_name = field_name.upper()
-        types_mapping[upper_name] = field_types.get(field_name, str)
-        if field_name in field_defaults:
-            defaults_mapping[upper_name] = field_defaults[field_name]
-        
-        if _is_required_field(schema, field_name):
-            # Only require uppercase (env vars are typically uppercase)
-            required_vars.append(upper_name)
-        else:
-            optional_vars.append(upper_name)
+    types_mapping = schema_info.get("types", {})
+    defaults_mapping = schema_info.get("defaults", {})
+    required_vars = schema_info.get("required", [])
+    optional_vars = schema_info.get("optional", [])
+    field_names = schema_info.get("field_names", [])
     
     # Load env with schema fields
     config = load_env(

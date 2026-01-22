@@ -42,11 +42,19 @@ Set-Content src\env_loader_pro\__init__.py -Value $init
 Write-Host "Cleaning previous builds..." -ForegroundColor Yellow
 Remove-Item -Recurse -Force dist, build, *.egg-info -ErrorAction SilentlyContinue
 
+# Check if build is installed
+Write-Host "Checking build tools..." -ForegroundColor Yellow
+python -m pip show build > $null 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "Installing build tools..." -ForegroundColor Yellow
+    python -m pip install --upgrade build twine --quiet
+}
+
 # Build
 Write-Host "Building package..." -ForegroundColor Yellow
 python -m build
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "Build failed!" -ForegroundColor Red
+    Write-Host "Build failed! Make sure 'build' is installed: pip install build" -ForegroundColor Red
     exit 1
 }
 
@@ -60,7 +68,13 @@ if ($LASTEXITCODE -ne 0) {
 
 # Upload
 Write-Host "Uploading to PyPI..." -ForegroundColor Yellow
-Write-Host "You will be prompted for your PyPI credentials." -ForegroundColor Cyan
+Write-Host ""
+Write-Host "IMPORTANT: When prompted for credentials:" -ForegroundColor Yellow
+Write-Host "  Username: __token__" -ForegroundColor Cyan
+Write-Host "  Password: <paste your PyPI API token (starts with pypi-)>" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Get your token at: https://pypi.org/manage/account/token/" -ForegroundColor Gray
+Write-Host ""
 twine upload dist/*
 
 if ($LASTEXITCODE -eq 0) {

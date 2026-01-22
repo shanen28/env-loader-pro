@@ -1,5 +1,11 @@
+import os
+import sys
 import pytest
 from dataclasses import dataclass
+
+# Add src to path for testing
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
 from env_loader_pro import load_with_schema, EnvLoaderError
 
 def test_dataclass_schema(tmp_path):
