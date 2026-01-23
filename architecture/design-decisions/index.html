@@ -12,13 +12,13 @@
         <meta name="author" content="Shanen Thomas">
       
       
-        <link rel="canonical" href="https://shanen28.github.io/env-loader-pro/providers/docker-k8s/">
+        <link rel="canonical" href="https://shanen28.github.io/env-loader-pro/architecture/design-decisions/">
       
       
-        <link rel="prev" href="../aws/">
+        <link rel="prev" href="../providers/">
       
       
-        <link rel="next" href="../custom/">
+        <link rel="next" href="../../contributing/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Docker k8s - env-loader-pro</title>
+        <title>Design decisions - env-loader-pro</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-kubernetes-providers" class="md-skip">
+        <a href="#design-decisions" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker k8s
+              Design decisions
             
           </span>
         </div>
@@ -299,13 +299,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../overview/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../providers/overview/" class="md-tabs__link">
           
   
   
@@ -389,11 +387,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../architecture/overview/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -860,10 +860,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -881,22 +879,21 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -914,7 +911,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -932,7 +929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../providers/overview/" class="md-nav__link">
         
   
   
@@ -960,7 +957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azure/" class="md-nav__link">
+      <a href="../../providers/azure/" class="md-nav__link">
         
   
   
@@ -988,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws/" class="md-nav__link">
+      <a href="../../providers/aws/" class="md-nav__link">
         
   
   
@@ -1013,35 +1010,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Docker k8s
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../providers/docker-k8s/" class="md-nav__link">
         
   
   
@@ -1057,118 +1029,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#docker-kubernetes-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Docker &amp; Kubernetes Providers
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Docker &amp; Kubernetes Providers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-secrets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Docker Secrets
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-secrets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kubernetes Secrets
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filesystem-provider" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Filesystem Provider
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-deployment-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kubernetes Deployment Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#related-topics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related Topics
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1181,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../custom/" class="md-nav__link">
+      <a href="../../providers/custom/" class="md-nav__link">
         
   
   
@@ -1762,8 +1622,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1779,21 +1641,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -1811,7 +1674,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1829,7 +1692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -1857,7 +1720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/principles/" class="md-nav__link">
+      <a href="../principles/" class="md-nav__link">
         
   
   
@@ -1885,7 +1748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architecture/providers/" class="md-nav__link">
+      <a href="../providers/" class="md-nav__link">
         
   
   
@@ -1910,10 +1773,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../architecture/design-decisions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design decisions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1929,6 +1817,151 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-deterministic-precedence-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Deterministic Precedence Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-failure-policies-are-explicit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Failure Policies Are Explicit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-audit-trails-are-per-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Audit Trails Are Per-Variable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-cloud-sdks-are-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Cloud SDKs Are Optional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-ci-safe-mode-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why CI-Safe Mode Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-encrypted-configs-are-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Encrypted Configs Are Supported
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-backward-compatibility-was-preserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Backward Compatibility Was Preserved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-mkdocs-github-pages-was-chosen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why MkDocs + GitHub Pages Was Chosen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-env-loader-pro-intentionally-does-not-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What env-loader-pro Intentionally Does NOT Solve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-philosophy-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Philosophy Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2176,22 +2209,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#docker-kubernetes-providers" class="md-nav__link">
+  <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Docker &amp; Kubernetes Providers
+        Design Decisions
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Docker &amp; Kubernetes Providers">
+    <nav class="md-nav" aria-label="Design Decisions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#docker-secrets" class="md-nav__link">
+  <a href="#why-deterministic-precedence-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Docker Secrets
+        Why Deterministic Precedence Matters
       
     </span>
   </a>
@@ -2199,10 +2232,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kubernetes-secrets" class="md-nav__link">
+  <a href="#why-failure-policies-are-explicit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kubernetes Secrets
+        Why Failure Policies Are Explicit
       
     </span>
   </a>
@@ -2210,10 +2243,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#filesystem-provider" class="md-nav__link">
+  <a href="#why-audit-trails-are-per-variable" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Filesystem Provider
+        Why Audit Trails Are Per-Variable
       
     </span>
   </a>
@@ -2221,10 +2254,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kubernetes-deployment-example" class="md-nav__link">
+  <a href="#why-cloud-sdks-are-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kubernetes Deployment Example
+        Why Cloud SDKs Are Optional
       
     </span>
   </a>
@@ -2232,10 +2265,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#priority" class="md-nav__link">
+  <a href="#why-ci-safe-mode-exists" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Priority
+        Why CI-Safe Mode Exists
       
     </span>
   </a>
@@ -2243,10 +2276,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#why-encrypted-configs-are-supported" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Best Practices
+        Why Encrypted Configs Are Supported
       
     </span>
   </a>
@@ -2254,10 +2287,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#related-topics" class="md-nav__link">
+  <a href="#why-backward-compatibility-was-preserved" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Topics
+        Why Backward Compatibility Was Preserved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-mkdocs-github-pages-was-chosen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why MkDocs + GitHub Pages Was Chosen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-env-loader-pro-intentionally-does-not-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What env-loader-pro Intentionally Does NOT Solve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-philosophy-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Philosophy Summary
       
     </span>
   </a>
@@ -2289,116 +2355,407 @@
   
 
 
-  <h1>Docker k8s</h1>
+  <h1>Design decisions</h1>
 
-<h2 id="docker-kubernetes-providers">Docker &amp; Kubernetes Providers<a class="headerlink" href="#docker-kubernetes-providers" title="Permanent link">&para;</a></h2>
-<p>Load secrets from Docker and Kubernetes mounted volumes.</p>
-<h3 id="docker-secrets">Docker Secrets<a class="headerlink" href="#docker-secrets" title="Permanent link">&para;</a></h3>
-<p>Docker Swarm mounts secrets at <code>/run/secrets/</code>.</p>
-<h4 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">env_loader_pro</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_env</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">env_loader_pro.providers</span><span class="w"> </span><span class="kn">import</span> <span class="n">DockerSecretsProvider</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Create provider (defaults to /run/secrets)</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">provider</span> <span class="o">=</span> <span class="n">DockerSecretsProvider</span><span class="p">()</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Or custom path</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">provider</span> <span class="o">=</span> <span class="n">DockerSecretsProvider</span><span class="p">(</span><span class="n">secrets_path</span><span class="o">=</span><span class="s2">&quot;/custom/secrets&quot;</span><span class="p">)</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Load configuration</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">config</span> <span class="o">=</span> <span class="n">load_env</span><span class="p">(</span><span class="n">providers</span><span class="o">=</span><span class="p">[</span><span class="n">provider</span><span class="p">])</span>
-</span></code></pre></div>
-<h4 id="auto-detection">Auto-Detection<a class="headerlink" href="#auto-detection" title="Permanent link">&para;</a></h4>
-<p>Docker secrets are automatically detected if available:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Automatically loads from /run/secrets if available</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">config</span> <span class="o">=</span> <span class="n">load_env</span><span class="p">(</span><span class="n">env</span><span class="o">=</span><span class="s2">&quot;prod&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<h3 id="kubernetes-secrets">Kubernetes Secrets<a class="headerlink" href="#kubernetes-secrets" title="Permanent link">&para;</a></h3>
-<p>Kubernetes mounts secrets and configmaps as files.</p>
-<h4 id="basic-usage_1">Basic Usage<a class="headerlink" href="#basic-usage_1" title="Permanent link">&para;</a></h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">env_loader_pro</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_env</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">env_loader_pro.providers</span><span class="w"> </span><span class="kn">import</span> <span class="n">KubernetesSecretsProvider</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Create provider</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">provider</span> <span class="o">=</span> <span class="n">KubernetesSecretsProvider</span><span class="p">(</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">secrets_path</span><span class="o">=</span><span class="s2">&quot;/etc/secrets&quot;</span><span class="p">,</span>      <span class="c1"># K8s secrets mount</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">config_map_path</span><span class="o">=</span><span class="s2">&quot;/etc/config&quot;</span>    <span class="c1"># K8s configmap mount</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">)</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Load configuration</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">config</span> <span class="o">=</span> <span class="n">load_env</span><span class="p">(</span><span class="n">providers</span><span class="o">=</span><span class="p">[</span><span class="n">provider</span><span class="p">])</span>
-</span></code></pre></div>
-<h4 id="auto-detection_1">Auto-Detection<a class="headerlink" href="#auto-detection_1" title="Permanent link">&para;</a></h4>
-<p>Kubernetes secrets are automatically detected if available:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Automatically loads from /etc/secrets and /etc/config if available</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">config</span> <span class="o">=</span> <span class="n">load_env</span><span class="p">(</span><span class="n">env</span><span class="o">=</span><span class="s2">&quot;prod&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<h3 id="filesystem-provider">Filesystem Provider<a class="headerlink" href="#filesystem-provider" title="Permanent link">&para;</a></h3>
-<p>Generic filesystem-mounted configuration:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">env_loader_pro.providers</span><span class="w"> </span><span class="kn">import</span> <span class="n">FilesystemProvider</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">provider</span> <span class="o">=</span> <span class="n">FilesystemProvider</span><span class="p">(</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">secrets_path</span><span class="o">=</span><span class="s2">&quot;/etc/secrets&quot;</span><span class="p">,</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">config_map_path</span><span class="o">=</span><span class="s2">&quot;/etc/config&quot;</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">)</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">config</span> <span class="o">=</span> <span class="n">load_env</span><span class="p">(</span><span class="n">providers</span><span class="o">=</span><span class="p">[</span><span class="n">provider</span><span class="p">])</span>
-</span></code></pre></div>
-<h3 id="kubernetes-deployment-example">Kubernetes Deployment Example<a class="headerlink" href="#kubernetes-deployment-example" title="Permanent link">&para;</a></h3>
-<h4 id="secret-definition">Secret Definition<a class="headerlink" href="#secret-definition" title="Permanent link">&para;</a></h4>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">metadata</span><span class="p">:</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-secrets</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nt">data</span><span class="p">:</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">DB_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;base64-encoded&gt;</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">API_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;base64-encoded&gt;</span>
-</span></code></pre></div>
-<h4 id="pod-mount">Pod Mount<a class="headerlink" href="#pod-mount" title="Permanent link">&para;</a></h4>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">spec</span><span class="p">:</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">volumeMounts</span><span class="p">:</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secrets</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/secrets</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secrets</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="nt">secret</span><span class="p">:</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">      </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-secrets</span>
-</span></code></pre></div>
-<h4 id="application-code">Application Code<a class="headerlink" href="#application-code" title="Permanent link">&para;</a></h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">env_loader_pro</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_env</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># Automatically loads from /etc/secrets</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">config</span> <span class="o">=</span> <span class="n">load_env</span><span class="p">(</span><span class="n">env</span><span class="o">=</span><span class="s2">&quot;prod&quot;</span><span class="p">)</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">db_password</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;DB_PASSWORD&quot;</span><span class="p">]</span>  <span class="c1"># From mounted secret</span>
-</span></code></pre></div>
-<h3 id="priority">Priority<a class="headerlink" href="#priority" title="Permanent link">&para;</a></h3>
-<p>Docker/K8s secrets have priority 3 (after cloud providers and system env):</p>
+<h2 id="design-decisions">Design Decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h2>
+<p>This document explains the <strong>why</strong> behind env-loader-pro's architecture. Each decision was made with specific tradeoffs in mind, informed by real-world production experience.</p>
+<h3 id="why-deterministic-precedence-matters">Why Deterministic Precedence Matters<a class="headerlink" href="#why-deterministic-precedence-matters" title="Permanent link">&para;</a></h3>
+<h4 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h4>
+<p>Configuration can come from multiple sources: <code>.env</code> files, system environment, cloud vaults, Docker secrets. Without a clear precedence order, you get:</p>
+<ul>
+<li><strong>Non-deterministic behavior</strong>: Same code, different results</li>
+<li><strong>Debugging nightmares</strong>: "Why is this value wrong in production?"</li>
+<li><strong>Security risks</strong>: Local secrets overriding production secrets</li>
+<li><strong>Compliance failures</strong>: Can't prove where values came from</li>
+</ul>
+<h4 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h4>
+<p><strong>Fixed precedence order (highest to lowest):</strong></p>
 <ol>
-<li>Cloud providers</li>
-<li>System environment</li>
-<li><strong>Docker/K8s secrets</strong> ← Here</li>
-<li>.env files</li>
+<li>Cloud providers (Azure, AWS)</li>
+<li>System environment variables</li>
+<li>Docker/K8s mounted secrets</li>
+<li><code>.env.{env}</code> (environment-specific)</li>
+<li>Base <code>.env</code> file</li>
 <li>Schema defaults</li>
 </ol>
-<h3 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Use K8s secrets</strong> for sensitive data</li>
-<li><strong>Use configmaps</strong> for non-sensitive config</li>
-<li><strong>Mount read-only</strong> volumes</li>
-<li><strong>Enable audit</strong> to track sources</li>
-<li><strong>Test locally</strong> with Docker secrets</li>
-</ol>
-<h3 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h3>
+<p>This order is <strong>documented, tested, and cannot be changed</strong>.</p>
+<h4 id="outcome">Outcome<a class="headerlink" href="#outcome" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="../overview/">Providers Overview</a></li>
-<li><a href="../../core-concepts/precedence/">Configuration Precedence</a></li>
+<li><strong>Predictable</strong>: Same precedence everywhere, every time</li>
+<li><strong>Secure by default</strong>: Cloud secrets always win (secrets win)</li>
+<li><strong>Debuggable</strong>: <code>envloader explain</code> shows exact order</li>
+<li><strong>Auditable</strong>: Audit trail records which source won</li>
 </ul>
+<h4 id="tradeoffs">Tradeoffs<a class="headerlink" href="#tradeoffs" title="Permanent link">&para;</a></h4>
+<p><strong>Pros:</strong>
+- No ambiguity - developers know exactly what will happen
+- Security-first - production secrets can't be overridden by local files
+- Testable - precedence is deterministic</p>
+<p><strong>Cons:</strong>
+- Less flexible - can't customize precedence per environment
+- Learning curve - developers must understand the order
+- Migration - existing code might rely on different precedence</p>
+<p><strong>Why we chose this:</strong>
+In production, <strong>predictability and security</strong> outweigh flexibility. A developer should never accidentally use a local <code>.env</code> value in production. The fixed order prevents this.</p>
+<hr />
+<h3 id="why-failure-policies-are-explicit">Why Failure Policies Are Explicit<a class="headerlink" href="#why-failure-policies-are-explicit" title="Permanent link">&para;</a></h3>
+<h4 id="problem_1">Problem<a class="headerlink" href="#problem_1" title="Permanent link">&para;</a></h4>
+<p>When a cloud provider fails (network outage, auth error, rate limit), what should happen?</p>
+<ul>
+<li><strong>Fail fast?</strong> - Application crashes, but you know immediately</li>
+<li><strong>Silently continue?</strong> - Application runs, but might be misconfigured</li>
+<li><strong>Log and continue?</strong> - Application runs, but with warnings</li>
+</ul>
+<p>Different environments need different behaviors. Production should fail fast. Development should be resilient.</p>
+<h4 id="decision_1">Decision<a class="headerlink" href="#decision_1" title="Permanent link">&para;</a></h4>
+<p><strong>Explicit per-provider failure policies:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">failure_policy</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;azure&quot;</span><span class="p">:</span> <span class="s2">&quot;fail&quot;</span><span class="p">,</span>      <span class="c1"># Production: fail on error</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">&quot;aws&quot;</span><span class="p">:</span> <span class="s2">&quot;fallback&quot;</span><span class="p">,</span>    <span class="c1"># Optional: continue if unavailable</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">&quot;filesystem&quot;</span><span class="p">:</span> <span class="s2">&quot;warn&quot;</span>  <span class="c1"># Development: log but continue</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Three policies:
+- <code>fail</code> - Raise error immediately
+- <code>warn</code> - Log warning and continue
+- <code>fallback</code> - Silently continue</p>
+<h4 id="outcome_1">Outcome<a class="headerlink" href="#outcome_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Environment-specific behavior</strong>: Production fails fast, dev is resilient</li>
+<li><strong>Explicit intent</strong>: Code documents what should happen on failure</li>
+<li><strong>Debuggable</strong>: Warnings logged with context</li>
+<li><strong>Testable</strong>: Can test failure scenarios</li>
+</ul>
+<h4 id="tradeoffs_1">Tradeoffs<a class="headerlink" href="#tradeoffs_1" title="Permanent link">&para;</a></h4>
+<p><strong>Pros:</strong>
+- Clear behavior - no guessing what happens on failure
+- Flexible - different policies per provider
+- Production-safe - can enforce strict policies</p>
+<p><strong>Cons:</strong>
+- More configuration - must set policies explicitly
+- Learning curve - developers must understand policies
+- Potential for misconfiguration - wrong policy for environment</p>
+<p><strong>Why we chose this:</strong>
+<strong>Explicit is better than implicit.</strong> In production, you want to know immediately if Azure Key Vault is down. In development, you want the app to run even if cloud providers are unavailable. Explicit policies make this clear.</p>
+<hr />
+<h3 id="why-audit-trails-are-per-variable">Why Audit Trails Are Per-Variable<a class="headerlink" href="#why-audit-trails-are-per-variable" title="Permanent link">&para;</a></h3>
+<h4 id="problem_2">Problem<a class="headerlink" href="#problem_2" title="Permanent link">&para;</a></h4>
+<p>Compliance and security audits need to answer:
+- "Where did this secret come from?"
+- "When was it loaded?"
+- "Was it from a secure source?"</p>
+<p>Traditional logging doesn't track this. You get logs like:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>INFO: Loaded configuration
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>INFO: Using DB_PASSWORD from environment
+</span></code></pre></div></p>
+<p>But you can't answer: "Was DB_PASSWORD from Azure or from a file?"</p>
+<h4 id="decision_2">Decision<a class="headerlink" href="#decision_2" title="Permanent link">&para;</a></h4>
+<p><strong>Per-variable audit trail</strong> that records:
+- Source (azure, aws, system, file, etc.)
+- Provider name (if applicable)
+- Timestamp
+- Masked status
+- <strong>Never the actual value</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">config</span><span class="p">,</span> <span class="n">audit</span> <span class="o">=</span> <span class="n">load_env</span><span class="p">(</span><span class="n">audit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">entry</span> <span class="o">=</span> <span class="n">audit</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;DB_PASSWORD&quot;</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># entry.source = &quot;azure&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># entry.provider = &quot;AzureKeyVaultProvider&quot;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># entry.timestamp = &quot;2024-01-15T10:30:00Z&quot;</span>
+</span></code></pre></div>
+<h4 id="outcome_2">Outcome<a class="headerlink" href="#outcome_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Compliance-ready</strong>: Can prove where every value came from</li>
+<li><strong>Debuggable</strong>: Know exactly which source provided each value</li>
+<li><strong>Secure</strong>: Never stores actual secret values</li>
+<li><strong>Machine-readable</strong>: JSON export for compliance systems</li>
+</ul>
+<h4 id="tradeoffs_2">Tradeoffs<a class="headerlink" href="#tradeoffs_2" title="Permanent link">&para;</a></h4>
+<p><strong>Pros:</strong>
+- Complete provenance - know source of every variable
+- Compliance-friendly - audit trail for SOC 2, etc.
+- Debuggable - trace configuration issues
+- Safe - no secrets in audit trail</p>
+<p><strong>Cons:</strong>
+- Memory overhead - stores metadata for every variable
+- Performance - slight overhead to track sources
+- Complexity - more code to maintain</p>
+<p><strong>Why we chose this:</strong>
+<strong>Compliance is non-negotiable.</strong> In regulated environments, you must prove where secrets came from. Per-variable audit trails provide this proof without storing secrets.</p>
+<hr />
+<h3 id="why-cloud-sdks-are-optional">Why Cloud SDKs Are Optional<a class="headerlink" href="#why-cloud-sdks-are-optional" title="Permanent link">&para;</a></h3>
+<h4 id="problem_3">Problem<a class="headerlink" href="#problem_3" title="Permanent link">&para;</a></h4>
+<p>Many configuration libraries require cloud SDKs:
+- <code>boto3</code> for AWS
+- <code>azure-identity</code> for Azure
+- <code>google-cloud-secret-manager</code> for GCP</p>
+<p>This creates problems:
+- <strong>Heavy dependencies</strong>: Large SDKs slow down installation
+- <strong>Breaking changes</strong>: SDK updates can break the library
+- <strong>CI/CD complexity</strong>: CI pipelines need cloud credentials
+- <strong>Local development</strong>: Can't develop without cloud access</p>
+<h4 id="decision_3">Decision<a class="headerlink" href="#decision_3" title="Permanent link">&para;</a></h4>
+<p><strong>Cloud SDKs are optional plugins:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Core library works without cloud SDKs</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">env_loader_pro</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_env</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">config</span> <span class="o">=</span> <span class="n">load_env</span><span class="p">()</span>  <span class="c1"># Works!</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Cloud providers are optional</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">env_loader_pro.providers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AzureKeyVaultProvider</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">provider</span> <span class="o">=</span> <span class="n">AzureKeyVaultProvider</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="c1"># Graceful degradation - use local config</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">provider</span> <span class="o">=</span> <span class="kc">None</span>
+</span></code></pre></div>
+<h4 id="outcome_3">Outcome<a class="headerlink" href="#outcome_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Lightweight core</strong>: Core library is small and fast</li>
+<li><strong>CI/CD friendly</strong>: CI pipelines don't need cloud SDKs</li>
+<li><strong>Local development</strong>: Developers can work offline</li>
+<li><strong>Graceful degradation</strong>: App works even if providers unavailable</li>
+</ul>
+<h4 id="tradeoffs_3">Tradeoffs<a class="headerlink" href="#tradeoffs_3" title="Permanent link">&para;</a></h4>
+<p><strong>Pros:</strong>
+- Small core - fast installation, fewer dependencies
+- CI/CD safe - validation works without cloud access
+- Flexible - use only what you need
+- Resilient - app works even if cloud unavailable</p>
+<p><strong>Cons:</strong>
+- Import errors - must handle ImportError gracefully
+- Feature discovery - harder to know what's available
+- Documentation - must document optional features</p>
+<p><strong>Why we chose this:</strong>
+<strong>Core should work everywhere.</strong> Not every environment has cloud access. CI pipelines, local development, air-gapped systems - all should work with the core library. Cloud providers are enhancements, not requirements.</p>
+<hr />
+<h3 id="why-ci-safe-mode-exists">Why CI-Safe Mode Exists<a class="headerlink" href="#why-ci-safe-mode-exists" title="Permanent link">&para;</a></h3>
+<h4 id="problem_4">Problem<a class="headerlink" href="#problem_4" title="Permanent link">&para;</a></h4>
+<p>CI/CD pipelines need to validate configuration, but:
+- <strong>No cloud credentials</strong>: CI pipelines shouldn't have production secrets
+- <strong>Deterministic behavior</strong>: Same validation every time
+- <strong>Fast execution</strong>: No network calls to cloud providers
+- <strong>Proper exit codes</strong>: Pipeline should fail on validation errors</p>
+<p>Traditional approaches:
+- Skip validation in CI (bad - misses errors)
+- Use cloud credentials in CI (bad - security risk)
+- Mock providers (complex - requires test setup)</p>
+<h4 id="decision_4">Decision<a class="headerlink" href="#decision_4" title="Permanent link">&para;</a></h4>
+<p><strong>CI-safe mode</strong> (<code>--ci</code> flag) that:
+- Disables cloud providers (no network calls)
+- Uses only local sources (.env files, system env)
+- Provides deterministic behavior
+- Returns proper exit codes</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># CI pipeline</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>envloader<span class="w"> </span>validate<span class="w"> </span>--ci<span class="w"> </span>--required<span class="w"> </span>API_KEY<span class="w"> </span>PORT
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Exit code 0 = success, non-zero = failure</span>
+</span></code></pre></div>
+<h4 id="outcome_4">Outcome<a class="headerlink" href="#outcome_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Secure</strong>: No cloud credentials needed in CI</li>
+<li><strong>Fast</strong>: No network calls, completes in milliseconds</li>
+<li><strong>Deterministic</strong>: Same result every time</li>
+<li><strong>Pipeline-friendly</strong>: Proper exit codes for automation</li>
+</ul>
+<h4 id="tradeoffs_4">Tradeoffs<a class="headerlink" href="#tradeoffs_4" title="Permanent link">&para;</a></h4>
+<p><strong>Pros:</strong>
+- Secure - no cloud credentials in CI
+- Fast - no network latency
+- Deterministic - same result every run
+- Simple - one flag, works everywhere</p>
+<p><strong>Cons:</strong>
+- Limited validation - can't validate cloud provider values
+- Different behavior - CI vs production might differ
+- Must remember flag - easy to forget <code>--ci</code></p>
+<p><strong>Why we chose this:</strong>
+<strong>CI pipelines should be fast and secure.</strong> They shouldn't need production credentials or make network calls. CI-safe mode provides validation without these requirements.</p>
+<hr />
+<h3 id="why-encrypted-configs-are-supported">Why Encrypted Configs Are Supported<a class="headerlink" href="#why-encrypted-configs-are-supported" title="Permanent link">&para;</a></h3>
+<h4 id="problem_5">Problem<a class="headerlink" href="#problem_5" title="Permanent link">&para;</a></h4>
+<p><code>.env</code> files often contain secrets. Even if you don't commit them:
+- <strong>Local storage</strong>: Secrets stored in plaintext on disk
+- <strong>Backup exposure</strong>: Backups might include <code>.env</code> files
+- <strong>Developer machines</strong>: Secrets on developer laptops
+- <strong>Version control accidents</strong>: Accidental commits</p>
+<h4 id="decision_5">Decision<a class="headerlink" href="#decision_5" title="Permanent link">&para;</a></h4>
+<p><strong>Support encrypted <code>.env</code> files</strong> with multiple methods:
+- <code>age</code> - Modern, simple encryption
+- <code>GPG</code> - Standard, widely supported
+- <code>openssl</code> - Universal, always available</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Encrypt</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>envloader<span class="w"> </span>encrypt<span class="w"> </span>.env<span class="w"> </span>--method<span class="w"> </span>age
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Load encrypted</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nv">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>load_env<span class="o">(</span><span class="nv">path</span><span class="o">=</span><span class="s2">&quot;.env.enc&quot;</span>,<span class="w"> </span><span class="nv">encrypted</span><span class="o">=</span>True<span class="o">)</span>
+</span></code></pre></div>
+<p><strong>Guarantee</strong>: Plaintext is never persisted to disk during encrypt/decrypt.</p>
+<h4 id="outcome_5">Outcome<a class="headerlink" href="#outcome_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Secure storage</strong>: Secrets encrypted at rest</li>
+<li><strong>Version control safe</strong>: Can commit encrypted files</li>
+<li><strong>Backup safe</strong>: Encrypted files in backups</li>
+<li><strong>Multiple methods</strong>: Choose based on environment</li>
+</ul>
+<h4 id="tradeoffs_5">Tradeoffs<a class="headerlink" href="#tradeoffs_5" title="Permanent link">&para;</a></h4>
+<p><strong>Pros:</strong>
+- Secure - secrets encrypted at rest
+- Version control friendly - can commit encrypted files
+- Flexible - multiple encryption methods
+- Safe - plaintext never persisted</p>
+<p><strong>Cons:</strong>
+- Complexity - must manage encryption keys
+- Performance - decryption overhead
+- Key management - must secure encryption keys</p>
+<p><strong>Why we chose this:</strong>
+<strong>Secrets should be encrypted at rest.</strong> Even if you don't commit <code>.env</code> files, they're stored in plaintext on disk. Encrypted configs solve this while allowing version control of encrypted files.</p>
+<hr />
+<h3 id="why-backward-compatibility-was-preserved">Why Backward Compatibility Was Preserved<a class="headerlink" href="#why-backward-compatibility-was-preserved" title="Permanent link">&para;</a></h3>
+<h4 id="problem_6">Problem<a class="headerlink" href="#problem_6" title="Permanent link">&para;</a></h4>
+<p>env-loader-pro was refactored from a simpler library. Options:
+- <strong>Breaking changes</strong>: Clean API, but breaks existing code
+- <strong>Backward compatible</strong>: Supports old API, but more complex
+- <strong>Deprecation path</strong>: Support old API, deprecate gradually</p>
+<h4 id="decision_6">Decision<a class="headerlink" href="#decision_6" title="Permanent link">&para;</a></h4>
+<p><strong>Full backward compatibility:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Old API (still works)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">config</span> <span class="o">=</span> <span class="n">load_env</span><span class="p">(</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;.env&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">required</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">],</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">types</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;PORT&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">},</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;PORT&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">},</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">priority</span><span class="o">=</span><span class="s2">&quot;system&quot;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># New API (enhanced features)</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">config</span> <span class="o">=</span> <span class="n">load_env</span><span class="p">(</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="n">env</span><span class="o">=</span><span class="s2">&quot;prod&quot;</span><span class="p">,</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="n">providers</span><span class="o">=</span><span class="p">[</span><span class="n">azure_provider</span><span class="p">],</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="n">audit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="n">failure_policy</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;azure&quot;</span><span class="p">:</span> <span class="s2">&quot;fail&quot;</span><span class="p">}</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>All old parameters work. New features are additive.</p>
+<h4 id="outcome_6">Outcome<a class="headerlink" href="#outcome_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Zero migration</strong>: Existing code works unchanged</li>
+<li><strong>Gradual adoption</strong>: Can adopt new features incrementally</li>
+<li><strong>Low risk</strong>: No breaking changes in production</li>
+<li><strong>Developer friendly</strong>: No forced rewrites</li>
+</ul>
+<h4 id="tradeoffs_6">Tradeoffs<a class="headerlink" href="#tradeoffs_6" title="Permanent link">&para;</a></h4>
+<p><strong>Pros:</strong>
+- Zero migration - existing code works
+- Low risk - no breaking changes
+- Gradual adoption - adopt new features when ready
+- Developer friendly - no forced rewrites</p>
+<p><strong>Cons:</strong>
+- API complexity - more parameters to understand
+- Legacy support - must maintain old code paths
+- Documentation - must document both old and new APIs</p>
+<p><strong>Why we chose this:</strong>
+<strong>Breaking changes hurt adoption.</strong> In enterprise environments, breaking changes require migration projects, testing, and risk. Backward compatibility allows gradual adoption of new features without forcing rewrites.</p>
+<hr />
+<h3 id="why-mkdocs-github-pages-was-chosen">Why MkDocs + GitHub Pages Was Chosen<a class="headerlink" href="#why-mkdocs-github-pages-was-chosen" title="Permanent link">&para;</a></h3>
+<h4 id="problem_7">Problem<a class="headerlink" href="#problem_7" title="Permanent link">&para;</a></h4>
+<p>Documentation needs:
+- <strong>Version control</strong>: Docs should be in git
+- <strong>Easy updates</strong>: Developers should update docs easily
+- <strong>Professional appearance</strong>: Enterprise-grade look
+- <strong>Free hosting</strong>: No infrastructure costs
+- <strong>Search</strong>: Users need to find information</p>
+<h4 id="decision_7">Decision<a class="headerlink" href="#decision_7" title="Permanent link">&para;</a></h4>
+<p><strong>MkDocs Material + GitHub Pages:</strong>
+- Documentation in markdown (version controlled)
+- Material theme (professional appearance)
+- GitHub Pages (free hosting)
+- Built-in search
+- Easy deployment (<code>mkdocs gh-deploy</code>)</p>
+<h4 id="outcome_7">Outcome<a class="headerlink" href="#outcome_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Version controlled</strong>: Docs in git, changes tracked</li>
+<li><strong>Professional</strong>: Material theme looks enterprise-grade</li>
+<li><strong>Free</strong>: GitHub Pages is free</li>
+<li><strong>Easy updates</strong>: Developers edit markdown, deploy automatically</li>
+<li><strong>Searchable</strong>: Built-in search functionality</li>
+</ul>
+<h4 id="tradeoffs_7">Tradeoffs<a class="headerlink" href="#tradeoffs_7" title="Permanent link">&para;</a></h4>
+<p><strong>Pros:</strong>
+- Free - no hosting costs
+- Version controlled - docs in git
+- Professional - Material theme looks great
+- Easy - markdown is simple
+- Searchable - built-in search</p>
+<p><strong>Cons:</strong>
+- GitHub dependency - tied to GitHub
+- Static only - no dynamic content
+- Limited customization - Material theme constraints</p>
+<p><strong>Why we chose this:</strong>
+<strong>Documentation should be easy to maintain.</strong> MkDocs + GitHub Pages provides professional documentation with minimal effort. Developers can update docs by editing markdown files.</p>
+<hr />
+<h3 id="what-env-loader-pro-intentionally-does-not-solve">What env-loader-pro Intentionally Does NOT Solve<a class="headerlink" href="#what-env-loader-pro-intentionally-does-not-solve" title="Permanent link">&para;</a></h3>
+<h4 id="not-a-secret-rotation-tool">Not a Secret Rotation Tool<a class="headerlink" href="#not-a-secret-rotation-tool" title="Permanent link">&para;</a></h4>
+<p><strong>What it does:</strong>
+- Loads secrets from rotation-capable sources (Azure Key Vault, AWS Secrets Manager)
+- Tracks secret metadata (TTL, rotation status)</p>
+<p><strong>What it doesn't do:</strong>
+- Rotate secrets automatically
+- Manage secret rotation schedules
+- Coordinate rotation across services</p>
+<p><strong>Why:</strong>
+Secret rotation is a separate concern. env-loader-pro focuses on <strong>loading</strong> configuration, not <strong>managing</strong> it.</p>
+<h4 id="not-a-configuration-management-system">Not a Configuration Management System<a class="headerlink" href="#not-a-configuration-management-system" title="Permanent link">&para;</a></h4>
+<p><strong>What it does:</strong>
+- Loads configuration from multiple sources
+- Merges with deterministic precedence
+- Validates configuration</p>
+<p><strong>What it doesn't do:</strong>
+- Store configuration in a database
+- Provide a UI for editing configuration
+- Manage configuration versions
+- Coordinate configuration across services</p>
+<p><strong>Why:</strong>
+Configuration management (Ansible, Terraform, etc.) is a different problem. env-loader-pro focuses on <strong>runtime loading</strong>, not <strong>configuration management</strong>.</p>
+<h4 id="not-a-service-discovery-tool">Not a Service Discovery Tool<a class="headerlink" href="#not-a-service-discovery-tool" title="Permanent link">&para;</a></h4>
+<p><strong>What it does:</strong>
+- Loads service endpoints from configuration
+- Supports environment-specific endpoints</p>
+<p><strong>What it doesn't do:</strong>
+- Discover services automatically
+- Manage service registries
+- Handle service health checks</p>
+<p><strong>Why:</strong>
+Service discovery (Consul, etcd, etc.) is a separate concern. env-loader-pro loads <strong>static configuration</strong>, not <strong>dynamic service discovery</strong>.</p>
+<h4 id="not-a-feature-flag-system">Not a Feature Flag System<a class="headerlink" href="#not-a-feature-flag-system" title="Permanent link">&para;</a></h4>
+<p><strong>What it does:</strong>
+- Loads feature flags as configuration
+- Supports environment-specific flags</p>
+<p><strong>What it doesn't do:</strong>
+- Provide feature flag UI
+- Manage feature flag rollouts
+- A/B testing
+- Real-time flag updates</p>
+<p><strong>Why:</strong>
+Feature flags (LaunchDarkly, etc.) are a specialized domain. env-loader-pro loads <strong>configuration</strong>, not <strong>feature flag logic</strong>.</p>
+<h4 id="not-a-secrets-injection-tool">Not a Secrets Injection Tool<a class="headerlink" href="#not-a-secrets-injection-tool" title="Permanent link">&para;</a></h4>
+<p><strong>What it does:</strong>
+- Loads secrets into application memory
+- Provides secure access to secrets</p>
+<p><strong>What it doesn't do:</strong>
+- Inject secrets into running processes
+- Manage secret injection at container level
+- Coordinate secret injection across pods</p>
+<p><strong>Why:</strong>
+Secret injection (Vault Agent, etc.) is infrastructure-level. env-loader-pro is <strong>application-level</strong> configuration loading.</p>
+<hr />
+<h3 id="design-philosophy-summary">Design Philosophy Summary<a class="headerlink" href="#design-philosophy-summary" title="Permanent link">&para;</a></h3>
+<p>env-loader-pro follows these principles:</p>
+<ol>
+<li><strong>Security First</strong>: Secrets win, audit everything, mask by default</li>
+<li><strong>Predictability</strong>: Deterministic behavior, no surprises</li>
+<li><strong>Simplicity</strong>: Core works everywhere, optional enhancements</li>
+<li><strong>Compatibility</strong>: Backward compatible, gradual adoption</li>
+<li><strong>Observability</strong>: Audit trails, tracing, performance monitoring</li>
+<li><strong>Resilience</strong>: Graceful degradation, failure policies</li>
+</ol>
+<p>These principles guide every design decision and tradeoff.</p>
 
 
 
@@ -2421,7 +2778,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 23, 2026 09:43:40 UTC">January 23, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 23, 2026 09:43:36 UTC">January 23, 2026</span>
   </span>
 
     
@@ -2431,7 +2788,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 23, 2026 09:43:40 UTC">January 23, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 23, 2026 09:43:36 UTC">January 23, 2026</span>
   </span>
 
     
