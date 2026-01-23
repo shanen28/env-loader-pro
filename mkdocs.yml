@@ -1,0 +1,138 @@
+site_name: env-loader-pro
+site_description: Enterprise-grade typed, validated, and secure environment variable loader for Python
+site_author: Shanen Thomas
+site_url: https://shanen28.github.io/env-loader-pro/
+
+repo_name: shanen28/env-loader-pro
+repo_url: https://github.com/shanen28/env-loader-pro
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - content.tooltips
+  icon:
+    repo: fontawesome/brands/github
+  footer:
+    powered_by: false
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - toc:
+      permalink: true
+      baselevel: 2
+      toc_depth: 3
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - getting-started/installation.md
+      - getting-started/quickstart.md
+      - getting-started/basic-usage.md
+  - Core Concepts:
+      - core-concepts/precedence.md
+      - core-concepts/type-casting.md
+      - core-concepts/validation.md
+      - core-concepts/schema.md
+  - Providers:
+      - providers/overview.md
+      - providers/azure.md
+      - providers/aws.md
+      - providers/docker-k8s.md
+      - providers/custom.md
+  - Enterprise Features:
+      - enterprise/audit.md
+      - enterprise/policies.md
+      - enterprise/policy-as-code.md
+      - enterprise/diff.md
+      - enterprise/performance.md
+      - enterprise/tradeoffs.md
+  - Security:
+      - security/model.md
+      - security/masking.md
+      - security/encryption.md
+      - security/ci-safety.md
+  - CLI Reference:
+      - cli/commands.md
+      - cli/examples.md
+  - Architecture:
+      - architecture/overview.md
+      - architecture/principles.md
+      - architecture/providers.md
+      - architecture/design-decisions.md
+  - Contributing: contributing.md
+  - API Reference:
+      - api/load-env.md
+      - api/load-with-schema.md
+      - api/providers.md
+      - api/exporters.md
+
+plugins:
+  - search:
+      lang: en
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: date
+
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/shanen28/env-loader-pro
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/env-loader-pro/
+
+extra_css:
+  - stylesheets/extra.css
