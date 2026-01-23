@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "env-loader-pro"
-version = "1.0.0"
+version = "1.0.1"
 description = "A typed, validated, and secure environment loader for Python projects with automatic type casting, validation, secret masking, and schema support."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -50,6 +50,7 @@ all = [
     "fastapi>=0.68.0",
     "watchdog>=2.1.0",
 ]
+
 
 
 
